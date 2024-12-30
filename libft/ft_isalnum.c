@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/30 11:31:44 by arabeman         ###   ########.fr       */
+/*   Created: 2024/02/19 11:57:31 by arabeman          #+#    #+#             */
+/*   Updated: 2024/03/02 11:46:47 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/cub3d.h"
-#include "../libft/libft.h"
-
-int	main(int argc, char **argv)
+int	ft_isalnum(int c)
 {
-    (void)argc;
-    (void)argv;
-    print_hello_world();
-    ft_putstr_fd("Using libft\n", 1);
-    return (0);
+	if (((c >= 65) && (c <= 90)) || ((c >= 97) && (c <= 122)) || ((c >= 48)
+			&& (c <= 57)))
+	{
+		return (1);
+	}
+	return (0);
 }

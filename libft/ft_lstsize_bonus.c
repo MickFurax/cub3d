@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/30 11:31:44 by arabeman         ###   ########.fr       */
+/*   Created: 2024/03/01 11:05:23 by arabeman          #+#    #+#             */
+/*   Updated: 2024/03/02 12:00:59 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/cub3d.h"
-#include "../libft/libft.h"
-
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-    (void)argc;
-    (void)argv;
-    print_hello_world();
-    ft_putstr_fd("Using libft\n", 1);
-    return (0);
+	t_list	*index;
+	int		count;
+
+	index = lst;
+	count = 0;
+	while (index != NULL)
+	{
+		count++;
+		index = index->next;
+	}
+	return (count);
 }

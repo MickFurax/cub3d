@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/30 11:31:44 by arabeman         ###   ########.fr       */
+/*   Created: 2024/03/01 14:41:24 by arabeman          #+#    #+#             */
+/*   Updated: 2024/03/02 12:02:10 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/cub3d.h"
-#include "../libft/libft.h"
-
-int	main(int argc, char **argv)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    (void)argc;
-    (void)argv;
-    print_hello_world();
-    ft_putstr_fd("Using libft\n", 1);
-    return (0);
+	t_list	*index;
+
+	while (lst != NULL)
+	{
+		index = lst->next;
+		(*f)(lst->content);
+		lst = index;
+	}
 }

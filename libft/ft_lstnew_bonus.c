@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/30 11:31:44 by arabeman         ###   ########.fr       */
+/*   Created: 2024/03/01 09:57:58 by arabeman          #+#    #+#             */
+/*   Updated: 2024/03/02 12:00:28 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/cub3d.h"
-#include "../libft/libft.h"
-
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-    (void)argc;
-    (void)argv;
-    print_hello_world();
-    ft_putstr_fd("Using libft\n", 1);
-    return (0);
+	t_list	*element;
+
+	element = malloc(sizeof(t_list));
+	if (!element)
+		return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }
