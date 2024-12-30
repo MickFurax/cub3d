@@ -13,8 +13,10 @@ SRC = print_hello_world/print_hello_world.c \
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
 LIBFT = libft/libft.a
+MINILIBX = ./minilibx-linux
+LIBMLX = $(MINILIBX)/libmlx.a
 
-SPINNER = ./.spinner.sh
+SPINNER = /tmp/spinner.sh
 
 all: $(NAME)
 
@@ -28,7 +30,7 @@ $(SPINNER):
 	@echo "}" >> $@
 	@echo "spinner() {" >> $@
 	@echo '  local pid=$$1' >> $@
-	@echo '  local message="Compiling libft"' >> $@
+	@echo '  local message="Loading"' >> $@
 	@echo '  local spin="⠁⠂⠄⡀⢀⠠⠐⠈"' >> $@
 	@echo '  local charwidth=$${#message}' >> $@
 	@echo '  tput civis' >> $@
@@ -44,6 +46,7 @@ $(SPINNER):
 	@echo '}' >> $@
 	@echo '("$$@") & spinner $$!' >> $@
 
+
 $(DIROBJ):
 	@mkdir -p $(DIROBJ)
 	@mkdir -p $(DIROBJ)/print_hello_world
@@ -51,10 +54,18 @@ $(DIROBJ):
 $(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+$(MINILIBX):
+	@git clone https://github.com/42Paris/minilibx-linux.git
+
 $(LIBFT): $(SPINNER)
 	@$(SPINNER) make -C libft
 
-$(NAME): $(OBJ) $(LIBFT)
+
+$(LIBMLX): $(SPINNER) $(MINILIBX)
+	@make -C $(MINILIBX) 2> /dev/null
+	@echo "\033[0;32m✔\033[0m Minilibx compiled successfully"
+
+$(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ) $(MAIN) $(LIBFT) -o $(NAME)
 	@echo "\033[0;32m✔\033[0m Compiled successfully"
 
@@ -67,7 +78,7 @@ clean:
 fclean: clean
 	@rm -f $(LIBFT)
 	@rm -f $(NAME)
-	@rm -f $(SPINNER)
+	@[ -d "$(MINILIBX)" ] && make clean -C $(MINILIBX) || :
 	@echo "\033[0;32m✔\033[0m Cleaned executable successfully"
 
 re: fclean all
