@@ -26,11 +26,11 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -rf $(DIROBJ)
-	@echo "\033[0;31m✖\033[0m Cleaned object files successfully"
+	@echo "\033[0;32m✔\033[0m Cleaned object files successfully"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[0;31m✖\033[0m Cleaned executable successfully"
+	@echo "\033[0;32m✔\033[0m Cleaned executable successfully"
 
 re: fclean all
 
