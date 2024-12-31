@@ -8,7 +8,9 @@ DIROBJ = tmp
 MAIN = $(DIRSRC)/main.c
 
 #* Update $(DIROBJ) when adding new source files
-SRC = print_hello_world/print_hello_world.c \
+#* Source directory inclusion not required (src)
+SRC = main.c \
+	print_hello_world/print_hello_world.c \
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
@@ -16,9 +18,19 @@ LIBFT = libft/libft.a
 MINILIBX = ./minilibx-linux
 LIBMLX = $(MINILIBX)/libmlx.a
 
+LINKING_FLAGS = -Lmlx -L/usr/lib/X11 -lXext -lX11
+
 SPINNER = /tmp/spinner.sh
+✔ = \033[0;32m✔\033[0m
 
 all: $(NAME)
+
+$(DIROBJ):
+	@mkdir -p $(DIROBJ)
+	@mkdir -p $(DIROBJ)/print_hello_world
+
+$(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ)
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(SPINNER):
 	@touch $@
@@ -38,7 +50,7 @@ $(SPINNER):
 	@echo '    for ((i = 0; i < $${#spin}; i++)); do' >> $@
 	@echo '      echo -n "$${spin:i:1} $$message"' >> $@
 	@echo '      cursorBack $$((charwidth + 2))' >> $@
-	@echo '      sleep 0.1' >> $@
+	@echo '      sleep 0.065' >> $@
 	@echo '    done' >> $@
 	@echo '  done' >> $@
 	@echo '  tput cnorm' >> $@
@@ -46,43 +58,36 @@ $(SPINNER):
 	@echo '}' >> $@
 	@echo '("$$@") & spinner $$!' >> $@
 
-
-$(DIROBJ):
-	@mkdir -p $(DIROBJ)
-	@mkdir -p $(DIROBJ)/print_hello_world
-
-$(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
 
 $(LIBFT): $(SPINNER)
 	@$(SPINNER) make -C libft
 
-
 $(LIBMLX): $(SPINNER) $(MINILIBX)
 	@make -C $(MINILIBX) 2> /dev/null
-	@echo "\033[0;32m✔\033[0m Minilibx compiled successfully"
+	@echo "$(✔) Minilibx compiled successfully"
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) $(MAIN) $(LIBFT) -o $(NAME)
-	@echo "\033[0;32m✔\033[0m Compiled successfully"
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME)
+	@echo "$(✔) Compiled successfully"
 
 clean:
 	@rm -f $(SPINNER)
 	@rm -rf libft/obj
 	@rm -rf $(DIROBJ)
-	@echo "\033[0;32m✔\033[0m Cleaned object files successfully"
+	@echo "$(✔) Cleaned object files successfully"
 
 fclean: clean
 	@rm -f $(LIBFT)
 	@rm -f $(NAME)
 	@[ -d "$(MINILIBX)" ] && make clean -C $(MINILIBX) || :
-	@echo "\033[0;32m✔\033[0m Cleaned executable successfully"
+	@echo "$(✔) Cleaned successfully"
+
+rm_minilibx:
+	@rm -rf $(MINILIBX)
+	@echo "$(✔) Minilibx removed successfully"
 
 re: fclean all
 
-
 .PHONY: all clean fclean re
-
