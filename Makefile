@@ -29,7 +29,10 @@ $(DIROBJ):
 	@mkdir -p $(DIROBJ)
 	@mkdir -p $(DIROBJ)/print_hello_world
 
-$(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ)
+$(MINILIBX):
+	@git clone https://github.com/42Paris/minilibx-linux.git
+
+$(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ) $(MINILIBX)
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(SPINNER):
@@ -57,9 +60,6 @@ $(SPINNER):
 	@echo '  wait $$pid' >> $@
 	@echo '}' >> $@
 	@echo '("$$@") & spinner $$!' >> $@
-
-$(MINILIBX):
-	@git clone https://github.com/42Paris/minilibx-linux.git
 
 $(LIBFT): $(SPINNER)
 	@$(SPINNER) make -C libft
