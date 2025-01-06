@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/31 12:21:21 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:31:44 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ int main(int argc, char **argv)
     mlx_destroy_display(mlx);
     free(mlx);
     (void)mlx_win;
+    char *gnl_test = get_next_line(0);
+    ft_putstr_fd(gnl_test, 1);
+    free(gnl_test);
     return (0);
 }
