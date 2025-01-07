@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 07:58:00 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:59:06 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:05:16 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 static char	*indexing(int c, int index, int c_temp, char *pointer)
 {
 	if (c < 0)
-	{
 		c_temp = c * -1;
-	}
 	while (index >= 0)
 	{
 		pointer[index] = (c_temp % 10) + 48;

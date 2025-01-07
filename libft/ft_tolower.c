@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:53:18 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:50:27 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:06:22 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	ft_tolower(int c)
 	if (ft_isalpha(c))
 	{
 		if ((c >= 65) && (c <= 90))
-		{
 			return (c + 32);
-		}
 	}
 	return (c);
 }

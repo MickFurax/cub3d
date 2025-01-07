@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:04:49 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:46:57 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:13:00 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 int	ft_isascii(int c)
 {
-	if ((c >= 0) && (c <= 127))
-	{
-		return (1);
-	}
-	return (0);
+	return (c >= 0 && c <= 127);
 }

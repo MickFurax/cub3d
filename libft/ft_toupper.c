@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:39:40 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:50:16 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:06:26 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 int	ft_toupper(int c)
 {
 	if (ft_isalpha(c))
 	{
 		if ((c >= 97) && (c <= 122))
-		{
 			return (c - 32);
-		}
 	}
 	return (c);
 }

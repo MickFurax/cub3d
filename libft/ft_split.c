@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:03:49 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:58:59 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:05:24 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 #include <stdio.h>
 
 static int	ft_arr_l(char *s, char c)
@@ -24,9 +24,7 @@ static int	ft_arr_l(char *s, char c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-		{
 			is_arr_item = 0;
-		}
 		else if (!is_arr_item)
 		{
 			is_arr_item = 1;

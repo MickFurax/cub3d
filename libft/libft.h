@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:41:25 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/06 16:28:52 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:12:27 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
+int					ft_isspace(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 size_t				ft_strlen(const char *s);

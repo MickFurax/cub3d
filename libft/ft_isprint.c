@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antanana      +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:29:29 by arabeman          #+#    #+#             */
-/*   Updated: 2024/03/02 11:47:14 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:29:06 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 
 int	ft_isprint(int c)
 {
-	if ((c >= 32) && (c <= 126))
-	{
-		return (1);
-	}
-	return (0);
+	return ((c >= 32) && (c <= 126));
 }
