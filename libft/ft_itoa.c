@@ -6,10 +6,11 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 07:58:00 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/07 13:05:16 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:29:36 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 static char	*indexing(int c, int index, int c_temp, char *pointer)
 {

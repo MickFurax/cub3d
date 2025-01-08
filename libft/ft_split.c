@@ -6,10 +6,11 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:03:49 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/07 13:05:24 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:28:41 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 static int	ft_arr_l(char *s, char c)

@@ -6,10 +6,11 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:34:21 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/06 18:28:50 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:29:21 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
