@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   tab_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 18:10:01 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/10 15:13:20 by arabeman         ###   ########.fr       */
+/*   Created: 2025/01/10 15:00:39 by arabeman          #+#    #+#             */
+/*   Updated: 2025/01/10 15:13:33 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
+void	tab_free(char **tab)
 {
-	return (c == 32 || (c >= 9 && c <= 13));
+	int	i;
+
+	i = 0;
+	while (tab && tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   tab_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 18:10:01 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/10 15:13:20 by arabeman         ###   ########.fr       */
+/*   Created: 2025/01/10 14:58:02 by arabeman          #+#    #+#             */
+/*   Updated: 2025/01/10 15:23:21 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
+int	tab_length(char **tab)
 {
-	return (c == 32 || (c >= 9 && c <= 13));
+	int	i;
+
+	i = 0;
+	while (tab && tab[i])
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:41:25 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/06 18:12:27 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:16:13 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-char *				get_next_line(int fd);
+char				*get_next_line(int fd);
+char				**tab_addback(char **tab, char *str);
+void				tab_display(char **tab);
+int					tab_length(char **tab);
+void				tab_free(char **tab);
 
 #endif
