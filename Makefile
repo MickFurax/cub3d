@@ -47,12 +47,12 @@ $(SPINNER):
 	@echo '  local pid=$$1' >> $@
 	@echo '  local message="Loading"' >> $@
 	@echo '  local spin="⠁⠂⠄⡀⢀⠠⠐⠈"' >> $@
-	@echo '  local charwidth=$${#message}' >> $@
+	@echo '  local charMINIMAP_WIDTH=$${#message}' >> $@
 	@echo '  tput civis' >> $@
 	@echo '  while kill -0 $$pid 2>/dev/null; do' >> $@
 	@echo '    for ((i = 0; i < $${#spin}; i++)); do' >> $@
 	@echo '      echo -n "$${spin:i:1} $$message"' >> $@
-	@echo '      cursorBack $$((charwidth + 2))' >> $@
+	@echo '      cursorBack $$((charMINIMAP_WIDTH + 2))' >> $@
 	@echo '      sleep 0.065' >> $@
 	@echo '    done' >> $@
 	@echo '  done' >> $@
