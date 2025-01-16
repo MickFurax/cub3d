@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/15 17:39:09 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:58:27 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,14 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-int get_wall_x(int player_x, int wall_x)
-{
-	return ((PXL_PER_PXL * wall_x) / player_x);
+int get_wall_x(int player_x, int wall_x) {
+    return ((CENTER + (wall_x - player_x) * 32));
 }
 
-int get_wall_y(int player_y, int wall_y)
-{
-	return ((PXL_PER_PXL * wall_y) / player_y);
+int get_wall_y(int player_y, int wall_y) {
+    return ((CENTER + (wall_y - player_y) * 32));
 }
+
 
 void draw_map(t_data *data)
 {
@@ -86,7 +85,7 @@ void draw_map(t_data *data)
 		y_i = 0;
 		while (y_i < 8)
 		{
-			if (map[x_i][y_i] == '1')
+			if (map[x_i][y_i] != '0' && map[x_i][y_i] != 'N')
 			{
 				draw_square(data, get_wall_y(player_y_i, y_i) , get_wall_x(player_x_i, x_i));
 			}
@@ -128,11 +127,11 @@ void draw_square(t_data *data, int x, int y)
 {
 	int i;
 
-	i = 0;
-	while (i < PXL_PER_PXL)
+	i = 2;
+	while (i < PXL_PER_PXL - 2)
 	{
-		int j = 0;
-		while (j < PXL_PER_PXL)
+		int j = 2;
+		while (j < PXL_PER_PXL - 2)
 		{
 			put_pixel(data, i + x, j + y, MAIN_COLOR);
 			j++;
@@ -193,12 +192,12 @@ void set_map(t_data *data)
 	if (!map)
 		return;
 	map[0] = ft_strdup("11111111");
-	map[1] = ft_strdup("1000N001");
+	map[1] = ft_strdup("10000001");
 	map[2] = ft_strdup("10000111");
 	map[3] = ft_strdup("10000011");
 	map[4] = ft_strdup("10110001");
 	map[5] = ft_strdup("10000001");
-	map[6] = ft_strdup("10100001");
+	map[6] = ft_strdup("10100N01");
 	map[7] = ft_strdup("11111111");
 	data->map = map;
 }
