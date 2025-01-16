@@ -6,12 +6,14 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:11:21 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/15 16:54:21 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:23:57 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 #define STRUCT_H
+
+#include <stdbool.h>
 
 typedef struct s_img
 {
@@ -32,6 +34,16 @@ typedef struct s_minimap
 	int bits_per_pixel;
 	int size_line;
 	int endian;
+
+	t_img player;
+
+	float x;
+	float y;
+
+	bool key_up;
+	bool key_down;
+	bool key_right;
+	bool key_left;
 } t_minimap;
 
 typedef struct s_data
