@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hello_world.c                                :+:      :+:    :+:   */
+/*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:21:49 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/31 12:10:23 by arabeman         ###   ########.fr       */
+/*   Created: 2025/01/17 18:04:13 by arabeman          #+#    #+#             */
+/*   Updated: 2025/01/18 10:32:55 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void print_hello_world(void)
+void init_image_data(t_img *image, const char* path, int x, int y)
 {
-    printf("Hello world!\n");
+    (void)x;
+    (void)y;
+    (void)path;
+    (void)image;
+}
+
+void init_image_minimap(t_img *image, const char* path, int x, int y)
+{
+    
 }

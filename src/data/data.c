@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/17 18:57:12 by arabeman         ###   ########.fr       */
+/*   Created: 2025/01/17 11:44:41 by arabeman          #+#    #+#             */
+/*   Updated: 2025/01/17 17:14:09 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "../../inc/cub3d.h"
 
-int main(int argc, char **argv)
+void init_data(t_data *data, int argc, char **argv)
 {
-	t_data data;
+    set_map(data);
+    init_minimap(data);
+    (void)argc;
+    (void)argv;
+}
 
-	init_data(&data, argc, argv);
-	free_data(&data);
-	return (0);
+void free_data(t_data *data)
+{
+    tab_free(data->map);
+    free_minimap(data);
 }

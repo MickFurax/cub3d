@@ -10,7 +10,10 @@ MAIN = $(DIRSRC)/main.c
 #* Update $(DIROBJ) when adding new source files
 #* Source directory inclusion not required (src)
 SRC = main.c \
-	print_hello_world/print_hello_world.c \
+	data/data.c \
+	data/data_global.c \
+	map/set_map.c \
+	map/minimap/minimap.c \
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
@@ -26,8 +29,10 @@ SPINNER = /tmp/spinner.sh
 all: $(NAME)
 
 $(DIROBJ):
-	@mkdir -p $(DIROBJ)
-	@mkdir -p $(DIROBJ)/print_hello_world
+	@mkdir -p $(DIROBJ)/
+	@mkdir -p $(DIROBJ)/data/
+	@mkdir -p $(DIROBJ)/map/
+	@mkdir -p $(DIROBJ)/map/minimap/
 
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
