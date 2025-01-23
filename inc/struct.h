@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:03:15 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/17 16:49:54 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:29:45 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_img
 	int bits_per_pixel;
 	int size_line;
 	int endian;
+	double angle;
 } t_img;
 
 typedef struct s_minimap
@@ -30,8 +31,8 @@ typedef struct s_minimap
 	void *mlx;
 	void *win;
 
-	t_img minimap;
-	t_img player;
+	t_img minimap_img;
+	t_img player_img;
 
 	float x;
 	float y;
@@ -40,6 +41,11 @@ typedef struct s_minimap
 	bool key_down;
 	bool key_right;
 	bool key_left;
+
+	bool turn_left;
+	bool turn_right;
+	bool forward;
+	bool backward;
 } t_minimap;
 
 typedef struct s_data

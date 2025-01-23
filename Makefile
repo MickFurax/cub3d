@@ -2,8 +2,8 @@ NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-DIRSRC = src
-DIROBJ = tmp
+DIRSRC = ./src
+DIROBJ = ./tmp
 
 MAIN = $(DIRSRC)/main.c
 
@@ -14,6 +14,9 @@ SRC = main.c \
 	data/data_global.c \
 	map/set_map.c \
 	map/minimap/minimap.c \
+	map/minimap/render_minimap.c \
+	mlx/draw_minimap.c \
+	key/handle_key.c \
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
@@ -32,7 +35,9 @@ $(DIROBJ):
 	@mkdir -p $(DIROBJ)/
 	@mkdir -p $(DIROBJ)/data/
 	@mkdir -p $(DIROBJ)/map/
+	@mkdir -p $(DIROBJ)/mlx/
 	@mkdir -p $(DIROBJ)/map/minimap/
+	@mkdir -p $(DIROBJ)/key/
 
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
@@ -74,7 +79,7 @@ $(LIBMLX): $(SPINNER) $(MINILIBX)
 	@echo "$(✔) Minilibx compiled successfully"
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm
 	@echo "$(✔) Compiled successfully"
 
 clean:
