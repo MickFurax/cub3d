@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:02:01 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/23 14:20:09 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:07:14 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void draw_square(t_minimap *minimap, int x, int y)
 		int j = 1;
 		while (j < PXL_PER_PXL - 1)
 		{
-			put_pixel(minimap, i + x, j + y, MAIN_COLOR);
+			put_pixel(minimap, i + x, j + y, 0xADD8E6);
 			j++;
 		}
 		i++;
@@ -109,6 +109,21 @@ void clear_minimap(t_data *data, t_img player)
 {
 	for (int i = 0; i < MINIMAP_HEIGHT; i++)
 		for (int j = 0; j < MINIMAP_WIDTH; j++)
-			put_pixel(data->minimap, i, j, 0.000000);
+			put_pixel(data->minimap, i, j, 0x000000);
+	
+	float ray_x = PXL_PER_PXL * 4;
+	float ray_y = PXL_PER_PXL * 4;
+	float angle = data->minimap->player_img.angle;
+	printf("angle: %f\n", angle);
+	float cos_angle = cos(angle - (PI / 2));
+	float sin_angle = sin(angle - (PI / 2));
+
+	for (int i = 0; i < MINIMAP_WIDTH * 2 / 2; i++)
+	{
+		put_pixel(data->minimap, ray_x, ray_y, 0xFF0000);
+		ray_x += cos_angle;
+		ray_y += sin_angle;
+	}
 	put_img(data, player, CENTER, CENTER);
+	(void)player;
 }

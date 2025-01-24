@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:10:02 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/23 11:13:38 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:52:22 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,54 @@ void move_player(t_minimap *minimap)
 {
     float speed = SPEED;
     float diagonal_speed = (0.07f * speed) / 0.1f;
-    double cos_angle = cos(minimap->player_img.angle);
-    double sin_angle = sin(minimap->player_img.angle);
 
-    if (minimap->key_up && minimap->key_right)
+    if ((minimap->key_up && (minimap->key_right || minimap->key_left)) || (minimap->key_down && (minimap->key_right || minimap->key_left)))
+        speed = diagonal_speed;
+    if (minimap->key_left && !minimap->key_right)
     {
-        minimap->y -= diagonal_speed;
-        minimap->x += diagonal_speed;
+        minimap->x += cos(minimap->player_img.angle - 90) * (speed / 2);
+        minimap->y -= sin(minimap->player_img.angle - 90) * (speed / 2);
+        minimap->x -= cos(minimap->player_img.angle + 90) * (speed / 2);
+        minimap->y += sin(minimap->player_img.angle + 90) * (speed / 2);
     }
-    else if (minimap->key_up && minimap->key_left)
+    else if (minimap->key_right && !minimap->key_left)
     {
-        minimap->x += diagonal_speed;
-        minimap->y += diagonal_speed;
+        minimap->x += cos(minimap->player_img.angle + 90) * (speed / 2);
+        minimap->y -= sin(minimap->player_img.angle + 90) * (speed / 2);
+        minimap->x -= cos(minimap->player_img.angle - 90) * (speed / 2);
+        minimap->y += sin(minimap->player_img.angle - 90) * (speed / 2);
     }
-    else if (minimap->key_down && minimap->key_right)
-    {
-        minimap->y -= diagonal_speed;
-        minimap->x -= diagonal_speed;
-    }
-    else if (minimap->key_down && minimap->key_left)
-    {
-        minimap->x -= diagonal_speed;
-        minimap->y += diagonal_speed;
-    }
-    else if (minimap->key_up)
-        minimap->x += speed;
-    else if (minimap->key_down)
-        minimap->x -= speed;
-    else if (minimap->key_left)
-        minimap->y += speed;
-    else if (minimap->key_right)
-        minimap->y -= speed;
     if (minimap->turn_left)
+    {
+        if (minimap->player_img.angle )
+        {
+            /* code */
+        }
+        
         minimap->player_img.angle -= speed / 10;
-    if (minimap->turn_right)
-        minimap->player_img.angle += speed / 10;
-    if (minimap->forward)
-    {
-        minimap->x += cos_angle * speed;
-        minimap->y -= sin_angle * speed;
     }
-    if (minimap->backward)
+    if (minimap->turn_right)
+
     {
-        minimap->x -= cos_angle * speed;
-        minimap->y += sin_angle * speed;
+        minimap->player_img.angle += speed / 10;
+    }
+    if (minimap->key_up)
+    {
+        minimap->x += cos(minimap->player_img.angle) * speed;
+        minimap->y -= sin(minimap->player_img.angle) * speed;
+    }
+    if (minimap->key_down)
+    {
+        minimap->x -= cos(minimap->player_img.angle) * speed;
+        minimap->y += sin(minimap->player_img.angle) * speed;
     }
 }
 
 int key_press(int keycode, t_minimap *minimap)
 {
-    if (keycode == W)
+    if (keycode == W || keycode == UP)
         minimap->key_up = true;
-    if (keycode == S)
+    if (keycode == S || keycode == DOWN)
         minimap->key_down = true;
     if (keycode == A)
         minimap->key_left = true;
@@ -77,10 +73,6 @@ int key_press(int keycode, t_minimap *minimap)
         minimap->turn_left = true;
     if (keycode == RIGHT)
         minimap->turn_right = true;
-    if (keycode == UP)
-        minimap->forward = true;
-    if (keycode == DOWN)
-        minimap->backward = true;
     if (keycode == Q || keycode == ESC)
         mlx_loop_end(minimap->mlx);
     return (0);
@@ -88,9 +80,9 @@ int key_press(int keycode, t_minimap *minimap)
 
 int key_release(int keycode, t_minimap *minimap)
 {
-    if (keycode == W)
+    if (keycode == W || keycode == UP)
         minimap->key_up = false;
-    if (keycode == S)
+    if (keycode == S || keycode == DOWN)
         minimap->key_down = false;
     if (keycode == A)
         minimap->key_left = false;
@@ -100,9 +92,5 @@ int key_release(int keycode, t_minimap *minimap)
         minimap->turn_left = false;
     if (keycode == RIGHT)
         minimap->turn_right = false;
-    if (keycode == UP)
-        minimap->forward = false;
-    if (keycode == DOWN)
-        minimap->backward = false;
     return (0);
 }

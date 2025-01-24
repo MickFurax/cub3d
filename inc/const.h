@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:34:15 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/23 11:36:09 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:21:41 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 #define WIN_CENTER (PXL_PER_PXL * 4)
 #define MAIN_COLOR 0xD0D4E4
 
-// #define SPEED 0.01
-#define SPEED 0.1
+#define SPEED 0.01
+// #define SPEED 0.1
 
 // *key
 #define W 119

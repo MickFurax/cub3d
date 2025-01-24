@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:03:15 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/23 11:29:45 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:06:32 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ typedef struct s_minimap
 
 	bool turn_left;
 	bool turn_right;
-	bool forward;
-	bool backward;
 } t_minimap;
 
 typedef struct s_data

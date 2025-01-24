@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:16:21 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/23 11:24:17 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:32:44 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int render_minimap(t_data *data)
 {
     t_minimap *minimap = data->minimap;
     move_player(minimap);
+    
     clear_minimap(data, data->minimap->player_img);
     draw_minimap(data, minimap->x, minimap->y);
+    
+    
+    
     mlx_put_image_to_window(minimap->mlx, minimap->win, minimap->player_img.img_ptr, CENTER, CENTER);
     mlx_put_image_to_window(minimap->mlx, minimap->win, minimap->minimap_img.img_ptr, 0, 0);
     return 0;
@@ -51,6 +55,7 @@ int render_and_show_fps(t_data *data)
     ft_putstr_fd("FPS: ", 1);
     ft_putnbr_fd(1.0 / time_taken, 1);
     ft_putchar_fd('\n', 1);
+    (void)time_taken;
     draw_minimap(data, minimap->x, minimap->y);
     usleep(1000);
     mlx_put_image_to_window(minimap->mlx, minimap->win, minimap->player_img.img_ptr, CENTER, CENTER);
