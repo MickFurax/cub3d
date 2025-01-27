@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/24 14:44:18 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:17:34 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ typedef struct s_mlx
 	void			*win;
 	t_framebuffer	*framebuff;
 }					t_mlx;
-
-// parsing utils
-void				free_2d_array(char **array);
 
 // parsing
 int					parse_rgb_color(char *str, t_color *color);

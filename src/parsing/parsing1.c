@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:46:15 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/24 10:46:16 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:17:30 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	parse_rgb_color(char *str, t_color *color)
 	splitted = ft_split(str, ',');
 	if (!splitted[0] || !splitted[1] || !splitted[2])
 	{
-		free_2d_array(splitted);
+		tab_free(splitted);
 		return (0);
 	}
 	color->r = ft_atoi(splitted[i++]);
@@ -51,10 +51,10 @@ int	parse_rgb_color(char *str, t_color *color)
 	if (color->r < 0 || color->r > 255 || color->g < 0 || color->g > 255
 		|| color->b < 0 || color->b > 255)
 	{
-		free_2d_array(splitted);
+		tab_free(splitted);
 		return (0);
 	}
-	free_2d_array(splitted);
+	tab_free(splitted);
 	return (1);
 }
 
@@ -65,7 +65,7 @@ int	parse_id_line(char *line, t_map_config *config)
 	splitted = ft_split_wsp(line);
 	if (!splitted || !splitted[0])
 	{
-		free_2d_array(splitted);
+		tab_free(splitted);
 		return (0);
 	}
 	if (!ft_strcmp(splitted[0], "NO") && splitted[1])
