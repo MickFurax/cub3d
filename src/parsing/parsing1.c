@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:46:15 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 11:17:30 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:17:44 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	parse_id_line(char *line, t_map_config *config)
 		config->has_floor = parse_rgb_color(splitted[1], &config->floor_c);
 	else if (!ft_strcmp(splitted[0], "C") && splitted[1])
 		config->has_ceiling = parse_rgb_color(splitted[1], &config->ceiling_c);
-	free(splitted);
+	tab_free(splitted);
 	return (1);
 }
 void	init_map_config(t_map_config *map_cf)
