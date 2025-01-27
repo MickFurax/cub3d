@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_wsp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:46:05 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/24 10:46:08 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:07:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

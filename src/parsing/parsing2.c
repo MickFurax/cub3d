@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:39:26 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 11:18:50 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:56:50 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ int handle_error_input(int ac, char **av)
 		return (ft_putstr_fd("Invalid map config", 2), 1);
 	if (!cf.has_no || !cf.has_so || !cf.has_we || !cf.has_ea || !cf.has_floor || !cf.has_ceiling)
 		return (ft_putstr_fd("Missing config", 2), 1);
+	free_map_config(&cf);
 	return (0);
 }

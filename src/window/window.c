@@ -6,13 +6,13 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 15:38:23 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:02:39 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static void	create_framebuff(t_data *m)
+static void create_framebuff(t_data *m)
 {
 	m->framebuff = malloc(sizeof(t_framebuffer));
 	if (!m->framebuff)
@@ -30,10 +30,10 @@ static void	create_framebuff(t_data *m)
 		exit(EXIT_FAILURE);
 	}
 	m->framebuff->addr = mlx_get_data_addr(m->framebuff->img,
-			&m->framebuff->bpp, &m->framebuff->line_length,
-			&m->framebuff->endian);
+										   &m->framebuff->bpp, &m->framebuff->line_length,
+										   &m->framebuff->endian);
 }
-void	start_win(t_data *m)
+void start_win(t_data *m)
 {
 	m->mlx = mlx_init();
 	m->win = mlx_new_window(m->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
@@ -44,7 +44,7 @@ void	start_win(t_data *m)
 	mlx_loop(m->mlx);
 }
 
-void	cleanup(t_data *m)
+void cleanup(t_data *m)
 {
 	if (m->framebuff)
 	{
@@ -53,5 +53,9 @@ void	cleanup(t_data *m)
 		free(m->framebuff);
 	}
 	if (m->win)
+	{
 		mlx_destroy_window(m->mlx, m->win);
+		mlx_destroy_display(m->mlx);
+		free(m->mlx);
+	}
 }

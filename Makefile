@@ -13,6 +13,7 @@ SRC = main.c \
 	print_hello_world/print_hello_world.c \
 	parsing/ft_split_wsp.c \
 	parsing/parsing1.c parsing/parsing2.c \
+	parsing/free_map_config.c \
 	window/window.c \
 	key/key.c \
 

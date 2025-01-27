@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/27 15:42:23 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:56:10 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_data
     void *mlx;
     void *win;
     t_framebuffer *framebuff;
+    t_map_config *map_config;
     t_key key;
 } t_data;
 
