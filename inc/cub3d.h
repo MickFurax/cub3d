@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 15:55:08 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:10:50 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void print_hello_world(void);
 char **ft_split_wsp(char const *s);
 int parse_id_line(char *line, t_map_config *config);
 int is_valid_char(char c);
-int handle_error_input(int ac, char **av);
+int handle_error_input(int ac, char **av, t_map_config *cf);
 void init_map_config(t_map_config *map_cf);
 void free_map_config(t_map_config *config);
 

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/27 15:32:18 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:13:48 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #include "../libft/libft.h"
 #include "../minilibx-linux/mlx.h"
 
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
     t_data data;
-    if (handle_error_input(ac, av))
+    t_map_config cf;
+    if (handle_error_input(ac, av, &cf))
         return (1);
+    data.map_config = &cf;
     printf("Configuration file parsed successfully!\n");
     start_win(&data);
     cleanup(&data);

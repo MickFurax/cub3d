@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 16:02:39 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:11:35 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void cleanup(t_data *m)
 		mlx_destroy_display(m->mlx);
 		free(m->mlx);
 	}
+	free_map_config(m->map_config);
 }

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:39:26 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 15:56:50 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:10:13 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,25 +107,23 @@ static int valid_map(t_map_config *map_cfg)
 	return (data[2]);
 }
 
-int handle_error_input(int ac, char **av)
+int handle_error_input(int ac, char **av, t_map_config *cf)
 {
-	t_map_config cf;
 	int fd;
 
 	if (ac != 2)
 		return (ft_putendl_fd("Usage: ./cub3D path_to_map", 2), 1);
 	if (!valid_file_ext(av[1]))
 		ft_putstr_fd("Invalid file extension", 2);
-	init_map_config(&cf);
+	init_map_config(cf);
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		return (ft_putstr_fd("Error: Invalid file", 2), 1);
-	if (!get_content(fd, &cf, av))
+	if (!get_content(fd, cf, av))
 		return (ft_putstr_fd("Error: Invalid file", 2), 1);
-	if (!valid_map(&cf))
+	if (!valid_map(cf))
 		return (ft_putstr_fd("Invalid map config", 2), 1);
-	if (!cf.has_no || !cf.has_so || !cf.has_we || !cf.has_ea || !cf.has_floor || !cf.has_ceiling)
+	if (!cf->has_no || !cf->has_so || !cf->has_we || !cf->has_ea || !cf->has_floor || !cf->has_ceiling)
 		return (ft_putstr_fd("Missing config", 2), 1);
-	free_map_config(&cf);
 	return (0);
 }
