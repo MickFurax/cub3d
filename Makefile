@@ -13,7 +13,8 @@ SRC = main.c \
 	print_hello_world/print_hello_world.c \
 	parsing/ft_split_wsp.c \
 	parsing/parsing1.c parsing/parsing2.c \
-	window/window.c
+	window/window.c \
+	key/key.c \
 
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
@@ -34,6 +35,7 @@ $(DIROBJ):
 	@mkdir -p $(DIROBJ)/print_hello_world
 	@mkdir -p $(DIROBJ)/parsing
 	@mkdir -p $(DIROBJ)/window
+	@mkdir -p $(DIROBJ)/key
 
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
