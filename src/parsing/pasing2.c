@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pasing2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:39:26 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/24 10:41:31 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:13:33 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	handle_error_input(int ac, char **av)
 	int				fd;
 
 	if (ac != 2)
-		ft_putstr_fd("Usage: ./cub3D path_to_map", 2);
+		return (ft_putendl_fd("Usage: ./cub3D path_to_map", 2), 1);
 	if (!valid_file_ext(av[1]))
 		ft_putstr_fd("Invalid file extension", 2);
 	init_map_config(&cf);
