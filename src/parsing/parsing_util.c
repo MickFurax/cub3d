@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_util.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/24 13:52:18 by mrabenja         ###   ########.fr       */
+/*   Created: 2025/01/24 10:45:57 by mrabenja          #+#    #+#             */
+/*   Updated: 2025/01/24 10:46:01 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
-#include "../libft/libft.h"
-#include "../minilibx-linux/mlx.h"
+#include "../../inc/cub3d.h"
 
-int main (int ac, char **av)
+void	free_2d_array(char **array)
 {
-    t_mlx m;
-    if (handle_error_input(ac, av))
-        return (1);
-    printf("Configuration file parsed successfully!\n");
-    start_win(&m);
-    cleanup(&m);
-    return (0);
+	int	i;
+
+	i = 0;
+	if (array == NULL)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

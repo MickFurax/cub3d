@@ -11,6 +11,10 @@ MAIN = $(DIRSRC)/main.c
 #* Source directory inclusion not required (src)
 SRC = main.c \
 	print_hello_world/print_hello_world.c \
+	parsing/ft_split_wsp.c parsing/parsing_util.c\
+	parsing/parsing1.c parsing/pasing2.c \
+	window/window.c
+
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
@@ -28,6 +32,8 @@ all: $(NAME)
 $(DIROBJ):
 	@mkdir -p $(DIROBJ)
 	@mkdir -p $(DIROBJ)/print_hello_world
+	@mkdir -p $(DIROBJ)/parsing
+	@mkdir -p $(DIROBJ)/window
 
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
@@ -69,7 +75,7 @@ $(LIBMLX): $(SPINNER) $(MINILIBX)
 	@echo "$(✔) Minilibx compiled successfully"
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm
 	@echo "$(✔) Compiled successfully"
 
 clean:

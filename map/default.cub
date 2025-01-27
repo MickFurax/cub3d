@@ -1,8 +1,11 @@
-NO ../texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
-SO ../texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
-WE ../texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
-EA ../texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
+NO ./texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
 
+
+SO ./texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
+
+
+WE                               ./texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
+EA ./texture/Wolfenstein3DWalls/08_Wolfenstein3DWalls1735817065.xpm
 F 220,100,0
 C 225,30,0
 
@@ -13,7 +16,7 @@ C 225,30,0
 111111111011000001110000000000001
 100000000011000001110111111111111
 11110111111111011100000010001
-11110111111111011101010010001
+11101111111110111010100100001
 11000000110101011100000010001
 10000000000000001100000010001
 10000000000000001101010010001
