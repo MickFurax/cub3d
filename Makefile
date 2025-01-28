@@ -16,6 +16,7 @@ SRC = main.c \
 	parsing/free_map_config.c \
 	window/window.c \
 	key/key.c \
+	raycasting/angle.c
 
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
@@ -37,6 +38,7 @@ $(DIROBJ):
 	@mkdir -p $(DIROBJ)/parsing
 	@mkdir -p $(DIROBJ)/window
 	@mkdir -p $(DIROBJ)/key
+	@mkdir -p $(DIROBJ)/raycasting
 
 $(MINILIBX):
 	@git clone https://github.com/42Paris/minilibx-linux.git
