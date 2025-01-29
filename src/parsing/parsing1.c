@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:46:15 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/27 16:17:44 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:28:15 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void	init_map_config(t_map_config *map_cf)
 	map_cf->has_ea = 0;
 	map_cf->has_floor = 0;
 	map_cf->has_ceiling = 0;
+	map_cf->map_x = 0;
+	map_cf->map_y = 0;
 }
 
 int	is_valid_char(char c)

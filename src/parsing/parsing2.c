@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:39:26 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/28 13:15:00 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/29 13:57:37 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,10 @@ static int valid_map(t_map_config *map_cfg)
 					if (data[2])
 						return (0);
 					data[2] = 1;
-					map_cfg->player_y = data[1];
-					map_cfg->player_x = data[0];
+					map_cfg->map_y = data[1];
+					map_cfg->map_x = data[0];
+					map_cfg->player_y = data[1] * TILE_SIZE;
+					map_cfg->player_x = data[0] * TILE_SIZE;
 					map_cfg->player_dir = map[data[1]][data[0]];
 				}
 			}
