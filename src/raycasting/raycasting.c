@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:48:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/29 17:27:14 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:44:15 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,36 @@ static void set_dist(t_ray_data *rd, t_map_config *cf)
 		
 }
 
+static void ray_loop(t_ray_data *rd, t_map_config *cf)
+{
+	while (!rd->hit)
+	{
+			if (rd->side_dist_x < rd->side_dist_y)
+		{
+			rd->side_dist_x += rd->delta_x;
+			cf->map_x += rd->step_x;
+			rd->side = 0; // vertical grid
+		}
+		else
+		{
+			rd->side_dist_y += rd->delta_y;
+			cf->map_y += rd->step_y;
+			rd->side = 1; //horizontal wall;
+		}
+		if (cf->map[cf->map_x][cf->map_y] == '1')
+			rd->hit = 1;
+	}
+}
+
+static void set_ray_dist (double *ray_dist, t_ray_data *rd, t_map_config *cf)
+{
+	//adjust the dist for the negative dir
+	if (rd->side == 0) // map_x and map_y coordinate of the wall the ray hit
+		*ray_dist = (cf->map_x - rd->ray_x / TILE_SIZE + (1 - rd->step_x) / 2) / cos(rd->ray_angle);
+	else
+		*ray_dist = (cf->map_y - rd->ray_y / TILE_SIZE + (1 - rd->step_y) / 2) / sin(rd->ray_angle);
+}
+
 void	cast_ray(t_map_config *cf, int col, double *ray_dst)
 {
 
@@ -86,6 +116,6 @@ void	cast_ray(t_map_config *cf, int col, double *ray_dst)
 	side_dist_y = (next_horizontal_grid_y − ray_y) × delta_dist_y
 	*/
 	set_dist(&rd, cf);
-	//
-
+	ray_loop(&rd, cf);
+	set_ray_dist(ray_dst, &rd, cf);
 }
