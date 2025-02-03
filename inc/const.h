@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   const.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:41:24 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/03 10:36:17 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:42:17 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define TILE_SIZE 64
 
 //player config
-# define MOVE_SPEED 5.0
-# define ROTA_SPEED 0.05
+# define MOVE_SPEED 0.1
+# define ROTA_SPEED 0.001
 
 // keycode
 # define W 119
