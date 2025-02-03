@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:03 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/03 13:00:12 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:04:46 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,16 @@ void	move_player(t_data *data)
 		data->key.right = false;
 	}
 	if (data->key.turn_left)
+	{
 		data->map_config->player_angle -= ROTA_SPEED;
+		data->key.turn_left = false;
+		puts("left");
+	}
 	if (data->key.turn_right)
+	{
 		data->map_config->player_angle += ROTA_SPEED;
+		data->key.turn_right = false;
+		puts("right");
+	}
 	reset_angle(&data->map_config->player_angle);
 }
