@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:20:43 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/30 16:24:31 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:23:58 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void	render_wall(int col, double ray_dist, void *img, char *addr)
 	int line_height;
 	int draw_start;
 	int draw_end;
-	int x;
 	int y;
+	(void)img;
+
 	line_height = (int)(WIN_HEIGHT / ray_dist);
 	// center the wall --> /2 in the uppper win height, the other in the lower
 	draw_start = WIN_HEIGHT / 2 - line_height / 2;

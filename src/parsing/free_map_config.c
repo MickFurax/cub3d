@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_map_config.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:52:12 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/27 16:03:13 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:29:09 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

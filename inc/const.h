@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:41:24 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/28 12:55:22 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:36:17 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define WIN_HEIGHT 600
 # define FOV_ANGLE (M_PI / 3) // 60 degrees
 # define TILE_SIZE 64
+
+//player config
+# define MOVE_SPEED 5.0
+# define ROTA_SPEED 0.05
 
 // keycode
 # define W 119

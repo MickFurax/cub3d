@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:48:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/01/30 16:44:15 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:55:34 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,14 @@ static void set_dist(t_ray_data *rd, t_map_config *cf)
 	if (rd->step_y > 0)
 		rd->side_dist_y = (cf->map_y + 1 - rd->ray_y / TILE_SIZE) * rd->delta_y;
 	else
-		rd->side_dist_y = (rd->ray_y / TILE_SIZE - cf->map_y) * rd->delta_y;
-		
+		rd->side_dist_y = (rd->ray_y / TILE_SIZE - cf->map_y) * rd->delta_y;		
 }
 
 static void ray_loop(t_ray_data *rd, t_map_config *cf)
 {
 	while (!rd->hit)
 	{
-			if (rd->side_dist_x < rd->side_dist_y)
+		if (rd->side_dist_x < rd->side_dist_y)
 		{
 			rd->side_dist_x += rd->delta_x;
 			cf->map_x += rd->step_x;
@@ -80,7 +79,7 @@ static void ray_loop(t_ray_data *rd, t_map_config *cf)
 			cf->map_y += rd->step_y;
 			rd->side = 1; //horizontal wall;
 		}
-		if (cf->map[cf->map_x][cf->map_y] == '1')
+		if (cf->map[cf->map_y][cf->map_x] == '1')
 			rd->hit = 1;
 	}
 }
@@ -99,7 +98,7 @@ void	cast_ray(t_map_config *cf, int col, double *ray_dst)
 
 	t_ray_data rd;
 
-	init_map_config(&rd);
+	init_ray_data(&rd);
 	rd.ray_angle = cf->player_angle + ((col - WIN_WIDTH / 2.0) / WIN_WIDTH)
 		* FOV_ANGLE; // this what makes it an offset
 	// represents how much the ray's angle deviate from the player's central angle

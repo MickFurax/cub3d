@@ -16,7 +16,9 @@ SRC = main.c \
 	parsing/free_map_config.c \
 	window/window.c \
 	key/key.c \
-	raycasting/angle.c
+	raycasting/angle.c raycasting/frame.c \
+	raycasting/move.c raycasting/raycasting.c \
+	raycasting/wall.c 
 
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
