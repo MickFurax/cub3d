@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:03 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/04 14:38:24 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:39:40 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void move_player(t_data *data)
 		speed = DIAGONAL_SPEED;
 	if (data->key.forward)
 	{
-		print_hello_world();
 		if (!has_wall_at(data, data->map_config->player_x + cosine * speed,
 						 data->map_config->player_y + sine * speed))
 		{
