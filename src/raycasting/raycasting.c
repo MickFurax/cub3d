@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:48:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/03 12:55:34 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:31:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,20 +87,27 @@ static void ray_loop(t_ray_data *rd, t_map_config *cf)
 static void set_ray_dist (double *ray_dist, t_ray_data *rd, t_map_config *cf)
 {
 	//adjust the dist for the negative dir
-	if (rd->side == 0) // map_x and map_y coordinate of the wall the ray hit
-		*ray_dist = (cf->map_x - rd->ray_x / TILE_SIZE + (1 - rd->step_x) / 2) / cos(rd->ray_angle);
+	// if (rd->side == 0) // map_x and map_y coordinate of the wall the ray hit
+	// 	*ray_dist = (cf->map_x - rd->ray_x / TILE_SIZE + (1 - rd->step_x) / 2) / cos(rd->ray_angle);
+	// else
+	// 	*ray_dist = (cf->map_y - rd->ray_y / TILE_SIZE + (1 - rd->step_y) / 2) / sin(rd->ray_angle);
+
+	//! optimization
+	if (rd->side == 0)
+		*ray_dist = (rd->side_dist_x - rd->delta_x);
 	else
-		*ray_dist = (cf->map_y - rd->ray_y / TILE_SIZE + (1 - rd->step_y) / 2) / sin(rd->ray_angle);
+		*ray_dist = (rd->side_dist_y - rd->delta_y);
+	(void)cf;
 }
 
-void	cast_ray(t_map_config *cf, int col, double *ray_dst)
+int	cast_ray(t_map_config *cf, int col, double *ray_dst)
 {
 
 	t_ray_data rd;
 
 	init_ray_data(&rd);
-	rd.ray_angle = cf->player_angle + ((col - WIN_WIDTH / 2.0) / WIN_WIDTH)
-		* FOV_ANGLE; // this what makes it an offset
+	rd.ray_angle = cf->player_angle + ((col - WIN_WIDTH / 2.0) / WIN_WIDTH) * FOV_ANGLE; 
+	// this what makes it an offset
 	// represents how much the ray's angle deviate from the player's central angle
 	reset_angle(&rd.ray_angle);
 	rd.ray_x = cf->player_x;
@@ -117,4 +124,6 @@ void	cast_ray(t_map_config *cf, int col, double *ray_dst)
 	set_dist(&rd, cf);
 	ray_loop(&rd, cf);
 	set_ray_dist(ray_dst, &rd, cf);
+	*ray_dst *= cos((rd.ray_angle - cf->player_angle)); // fix fisheye
+	return (rd.side);
 }

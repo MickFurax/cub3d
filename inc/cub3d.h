@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/03 12:11:36 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:26:00 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	reset_angle(double *ray_angle);
 
 // ray
 bool	has_wall_at(t_data *data, int x, int y);
-void	cast_ray(t_map_config *cf, int col, double *ray_dst);
-void	render_wall(int col, double ray_dist, void *img, char *addr);
+int	cast_ray(t_map_config *cf, int col, double *ray_dst);
+void	render_wall(int col, double ray_dist, void *img, char *addr, int side);
 void	render_frame(t_data *data);
 void	move_player(t_data *data);
 

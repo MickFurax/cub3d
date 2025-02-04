@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:20:43 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/03 15:14:54 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:30:10 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-void	render_wall(int col, double ray_dist, void *img, char *addr)
+void	render_wall(int col, double ray_dist, void *img, char *addr, int side)
 {
 	int line_height;
 	int draw_start;
@@ -28,7 +28,10 @@ void	render_wall(int col, double ray_dist, void *img, char *addr)
 	draw_end = WIN_HEIGHT / 2 + line_height / 2;
 	if (draw_end >= WIN_HEIGHT)
 		draw_end = WIN_HEIGHT - 1;
-	int color = 0xFFFFFF;
+	int color = 0xEEEEEE;
+	if (side)
+		color = 0xFFFFFF;
+	
 	y = draw_start;
 	while (y < draw_end)
 	{
