@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:00:22 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 15:00:10 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:12:45 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	free_textures(t_data *data)
 			mlx_destroy_image(data->mlx, txt[i].img);
 }
 //FIXIT
-t_texture 	*get_correct_txt(t_data *data, t_ray_data *rd)
+t_texture 	*get_wall_txt(t_data *data, t_ray_data *rd)
 {
 	if (rd->side == 0) //vertical
 	{

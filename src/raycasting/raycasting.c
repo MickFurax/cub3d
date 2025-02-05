@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:48:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 11:47:31 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:27:19 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ static void ray_loop(t_ray_data *rd, t_map_config *cf)
 static void set_ray_dist (double *ray_dist, t_ray_data *rd, t_map_config *cf)
 {
 	//adjust the dist for the negative dir
-	// if (rd->side == 0) // map_x and map_y coordinate of the wall the ray hit
+	// map_x and map_y : coordinates of the wall the ray hit
+	// if (rd->side == 0) 
 	// 	*ray_dist = (cf->map_x - rd->ray_x / TILE_SIZE + (1 - rd->step_x) / 2) / cos(rd->ray_angle);
 	// else
 	// 	*ray_dist = (cf->map_y - rd->ray_y / TILE_SIZE + (1 - rd->step_y) / 2) / sin(rd->ray_angle);
-
 	//! optimization
 	if (rd->side == 0)
 		*ray_dist = (rd->side_dist_x - rd->delta_x);
