@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/05 11:53:13 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:08:18 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,25 @@ typedef struct s_ray_data
 	double			ray_angle;
 }					t_ray_data;
 
-typedef struct s_framebuffer
+typedef struct s_framebuffer // for the whole screeen
 {
-	void			*img; // image buffer created by mlx_new_image
-	char			*addr; // data of each pixel inside img
-	int				bpp; //32
-	int				line_length; 
-	int				endian; // rgba
+	void 			*img;  // image buffer created by mlx_new_image
+	char 			*addr; // data of each pixel inside img
+	int				bpp;    // 32
+	int 			line_length;
+	int 			endian; // rgba
 }					t_framebuffer;
+
+typedef struct s_texture // for one texture in the screen
+{
+	void			*img;
+	char			*addr;
+	int				bpp;
+	int				line_length;
+	int				endian;
+	int				width;
+	int				height;
+}					t_texture;
 
 typedef struct s_data
 {
@@ -88,6 +99,7 @@ typedef struct s_data
 	t_framebuffer	*framebuff;
 	t_map_config	*map_config;
 	t_key			key;
+	t_texture		textures[4]; //should change for the bonus pt	
 }					t_data;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:20:43 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/04 14:30:10 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:54:32 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	render_wall(int col, double ray_dist, void *img, char *addr, int side)
 	int color = 0xEEEEEE;
 	if (side)
 		color = 0xFFFFFF;
-	
 	y = draw_start;
 	while (y < draw_end)
 	{

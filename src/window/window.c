@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 11:51:36 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:58:27 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,20 @@ void start_win(t_data *m)
 	mlx_hook(m->win, 17, 0, mlx_loop_end, m->mlx);
 }
 
-void cleanup(t_data *m)
+void cleanup(t_data *data)
 {
-	if (m->framebuff)
+	if (data->framebuff)
 	{
-		if (m->framebuff->img)
-			mlx_destroy_image(m->mlx, m->framebuff->img);
-		free(m->framebuff);
+		if (data->framebuff->img)
+			mlx_destroy_image(data->mlx, data->framebuff->img);
+		free(data->framebuff);
 	}
-	if (m->win)
+	if (data->win)
 	{
-		mlx_destroy_window(m->mlx, m->win);
-		mlx_destroy_display(m->mlx);
-		free(m->mlx);
+		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
 	}
-	free_map_config(m->map_config);
+	free_map_config(data->map_config);
+	free_textures(data);
 }
