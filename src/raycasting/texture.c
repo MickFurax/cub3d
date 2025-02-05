@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:00:22 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 13:57:02 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:00:10 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,32 @@ void	free_textures(t_data *data)
 	while (++i < 4)
 		if (txt[i].img)
 			mlx_destroy_image(data->mlx, txt[i].img);
+}
+//FIXIT
+t_texture 	*get_correct_txt(t_data *data, t_ray_data *rd)
+{
+	if (rd->side == 0) //vertical
+	{
+		if (rd->step_x > 0)
+			return (&data->textures[west]);
+		else
+			return (&data->textures[east]);
+	}
+	else if (rd->side == 1) //horizontal
+	{
+		if (rd->step_y > 0)
+			return (&data->textures[north]);
+		else
+			return (&data->textures[south]);
+	}
+}
+
+int	get_texture_pxl(t_texture *txt, int x, int y)
+{
+	char *res;
+	
+	if (x < 0 || y < 0 || x >= WIN_WIDTH || y >= WIN_HEIGHT)
+		return;
+	res = txt->addr + (y * txt->line_length + x * (txt->bpp / 8));
+	return(*(unsigned int *)res);
 }

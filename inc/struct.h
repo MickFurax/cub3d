@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/05 13:08:18 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:03:12 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_framebuffer // for the whole screeen
 	char 			*addr; // data of each pixel inside img
 	int				bpp;    // 32
 	int 			line_length;
-	int 			endian; // rgba
+	int 			endian; // rgba or bgra
 }					t_framebuffer;
 
 typedef struct s_texture // for one texture in the screen

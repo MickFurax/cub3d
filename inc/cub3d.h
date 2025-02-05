@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 13:56:15 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:01:26 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void	render_background(t_data *data);
 void	load_textures(t_data *data);
 void	set_texture_data(t_data *data);
 void	free_textures(t_data *data);
+int	    get_texture_pxl(t_texture *txt, int x, int y);
 
 #endif
