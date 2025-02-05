@@ -6,13 +6,13 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:27:23 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/04 14:38:31 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:33:12 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-static void ft_mlx_pixel_put(t_framebuffer *img, int x, int y, unsigned int color)
+void ft_mlx_pixel_put(t_framebuffer *img, int x, int y, unsigned int color)
 {
 	char *dest;
 
@@ -43,11 +43,13 @@ static void refresh_framebuff(t_data *data)
 void render_frame(t_data *data)
 {
 	int col;
+	
 	double ray_dist;
 
 	ray_dist = 0;
 	col = 0;
 	refresh_framebuff(data);
+	render_background(data);
 	while (col < WIN_WIDTH)
 	{
 		render_wall(col, ray_dist, data->framebuff->img, data->framebuff->addr, cast_ray(data->map_config, col, &ray_dist));

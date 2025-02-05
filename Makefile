@@ -18,8 +18,8 @@ SRC = main.c \
 	key/key.c \
 	raycasting/angle.c raycasting/frame.c \
 	raycasting/move.c raycasting/raycasting.c \
-	raycasting/wall.c 
-
+	raycasting/wall.c \
+	raycasting/background.c \
 
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 
