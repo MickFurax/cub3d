@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/01/29 13:41:53 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:53:13 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ typedef struct s_ray_data
 
 typedef struct s_framebuffer
 {
-	void			*img;
-	char			*addr;
-	int				bpp;
-	int				line_length;
-	int				endian;
+	void			*img; // image buffer created by mlx_new_image
+	char			*addr; // data of each pixel inside img
+	int				bpp; //32
+	int				line_length; 
+	int				endian; // rgba
 }					t_framebuffer;
 
 typedef struct s_data

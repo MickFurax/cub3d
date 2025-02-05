@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:48:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/04 14:31:51 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:47:31 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ static void set_ray_dist (double *ray_dist, t_ray_data *rd, t_map_config *cf)
 	else
 		*ray_dist = (rd->side_dist_y - rd->delta_y);
 	(void)cf;
-}
+ }
+
 
 int	cast_ray(t_map_config *cf, int col, double *ray_dst)
 {

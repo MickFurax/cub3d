@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/03 15:42:34 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:51:36 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void create_framebuff(t_data *m)
 	if (!m->framebuff->img)
 	{
 		ft_putstr_fd("Error creating image", 2);
-		// free(m->framebuff);
 		cleanup(m);
 		exit(EXIT_FAILURE);
 	}
@@ -41,7 +40,6 @@ void start_win(t_data *m)
 	mlx_hook(m->win, 2, 1L << 0, key_press, m);
 	mlx_hook(m->win, 3, 1L << 1, key_release, m);
 	mlx_hook(m->win, 17, 0, mlx_loop_end, m->mlx);
-	// mlx_loop(m->mlx);
 }
 
 void cleanup(t_data *m)
