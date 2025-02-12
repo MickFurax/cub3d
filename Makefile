@@ -6,7 +6,7 @@
 #    By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/12 20:25:25 by mrabenja         ###   ########.fr        #
+#    Updated: 2025/02/12 20:42:54 by mrabenja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,7 +184,7 @@ $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
 
 clean: $(SPINNER)
 	@clear
-	@echo "$(Red)"
+	@echo "$(Purple)"
 	@echo "$$CLEAR$$WIPE_O"
 	@echo "$(Color_Off)"
 	@$(SPINNER) sleep 0.7
@@ -194,7 +194,7 @@ clean: $(SPINNER)
 
 fclean: clean
 	@clear
-	@echo "$(BRed)"
+	@echo "$(BPurple)"
 	@echo "$$WIPE_ALL"
 	@echo "$(Color_Off)"
 	@$(SPINNER) sleep 0.7
