@@ -3,3 +3,5 @@ cub3d
 tmp/
 libft/libft.a
 libft/obj/
+.vscode
+

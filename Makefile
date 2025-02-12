@@ -6,7 +6,7 @@
 #    By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/12 18:09:22 by mrabenja         ###   ########.fr        #
+#    Updated: 2025/02/12 20:25:25 by mrabenja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,18 +53,7 @@ define GP_NAME
                                                                         
 endef	
 export GP_NAME
-
-define	CREATION
-▗▞▀▚▖▄   ▄ ▗▞▀▚▖▗▞▀▘     ▄▄▄  █  ▄ 
-▐▛▀▀▘ ▀▄▀  ▐▛▀▀▘▝▚▄▖    █   █ █▄▀  
-▝▚▄▄▖▄▀ ▀▄ ▝▚▄▄▖        ▀▄▄▄▀ █ ▀▄ 
-                              █  █ 
-                                   
-                                   
-                                                     ░           ░                                           ░      
-endef
-export CREATION                                                                             
-																		 
+																 
 define WIPE_O
  ▄▄▄  ▗▖      ▗▖    ▄   ▄ ▄ ▄▄▄▄  ▗▞▀▚▖   ▐▌
 █   █ ▐▌      ▗▖    █ ▄ █ ▄ █   █ ▐▛▀▀▘   ▐▌
@@ -86,6 +75,17 @@ define WIPE_ALL
                                                  
 endef
 export WIPE_ALL
+
+define	WIPE_MAX
+▗▖ ▗▖▄ ▄▄▄▄  ▄ ▄▄▄▄        ▗▞▀▚▖▄   ▄ ▗▞▀▚▖ ▄▄▄ ▄   ▄    ■  ▐▌   ▄ ▄▄▄▄    
+▐▌ ▐▌▄ █   █ ▄ █   █       ▐▛▀▀▘█   █ ▐▛▀▀▘█    █   █ ▗▄▟▙▄▖▐▌   ▄ █   █   
+▐▌ ▐▌█ █▄▄▄▀ █ █   █       ▝▚▄▄▖ ▀▄▀  ▝▚▄▄▖█     ▀▀▀█   ▐▌  ▐▛▀▚▖█ █   █   
+▐▙█▟▌█ █     █     ▗▄▖                          ▄   █   ▐▌  ▐▌ ▐▌█     ▗▄▖ 
+       ▀          ▐▌ ▐▌                          ▀▀▀    ▐▌            ▐▌ ▐▌
+                   ▝▀▜▌                                                ▝▀▜▌
+                  ▐▙▄▞▘                                               ▐▙▄▞▘
+endef
+export WIPE_MAX                                                                             
 
 NAME = cub3d
 CC = gcc
@@ -180,7 +180,7 @@ $(LIBMLX): $(SPINNER) $(MINILIBX)
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm >/dev/null 2>&1
-	@echo "$(✔) Compiled successfully"
+	@echo "$(✔) Project successfully compiled"
 
 clean: $(SPINNER)
 	@clear
@@ -190,7 +190,7 @@ clean: $(SPINNER)
 	@$(SPINNER) sleep 0.7
 	@rm -rf libft/obj >/dev/null 2>&1
 	@rm -rf $(DIROBJ) >/dev/null 2>&1
-	@echo "$(✔) Cleaned object files successfully"
+	@echo "$(✔) Object files successfully cleaned"
 
 fclean: clean
 	@clear
@@ -201,13 +201,16 @@ fclean: clean
 	@rm -f $(SPINNER) >/dev/null 2>&1
 	@rm -f $(LIBFT) >/dev/null 2>&1
 	@rm -f $(NAME) >/dev/null 2>&1
-	@rm -rf $(MINILIBX) >/dev/null 2>&1
-	@echo "$(✔) Cleaned successfully"
+	@echo "$(✔) Project successfully cleaned"
 
-rm_minilibx:
+wipe_all: fclean
+	@clear
+	@echo "$(BRed)"
+	@echo "$$WIPE_MAX"
+	@echo "$(Color_Off)"
 	@rm -rf $(MINILIBX) >/dev/null 2>&1
 	@echo "$(✔) Minilibx removed successfully"
-
+	@echo "$(✔) Everything wiped out"
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re wipe_all
