@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/05 14:03:12 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:37:59 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ typedef struct s_map_config
 
 typedef struct s_ray_data
 {
-	double			ray_x;
-	double			ray_y;
+	double ray_x; // ray at the player position
+	double ray_y; // ray at the player position
 	double			delta_x;
 	double			delta_y;
 	int				step_x;
@@ -70,27 +70,40 @@ typedef struct s_ray_data
 	int				hit;
 	int				side;
 	double			ray_angle;
+	double			corrected_fisheye;
 }					t_ray_data;
 
 typedef struct s_framebuffer // for the whole screeen
 {
-	void 			*img;  // image buffer created by mlx_new_image
-	char 			*addr; // data of each pixel inside img
-	int				bpp;    // 32
-	int 			line_length;
-	int 			endian; // rgba or bgra
+	void *img;  // image buffer created by mlx_new_image
+	char *addr; // data of each pixel inside img
+	int bpp;    // 32
+	int line_length;
+	int endian; // rgba or bgra
 }					t_framebuffer;
 
 typedef struct s_texture // for one texture in the screen
 {
-	void			*img;
-	char			*addr;
-	int				bpp;
-	int				line_length;
-	int				endian;
-	int				width;
-	int				height;
+	void *img;
+	char *addr;
+	int bpp;
+	int line_length;
+	int endian;
+	int width;
+	int height;
 }					t_texture;
+
+typedef struct s_render_param
+{
+	double			line_height;
+	int				draw_start;
+	int				draw_end;
+	int				tex_x;
+	int				tex_y;
+	double			step; // Calculate how much to increase the texture coordinate per screen pixel
+	t_texture		*texture;
+	double			tex_pos; // Starting texture coordinate
+}					t_render_param;
 
 typedef struct s_data
 {
@@ -99,7 +112,7 @@ typedef struct s_data
 	t_framebuffer	*framebuff;
 	t_map_config	*map_config;
 	t_key			key;
-	t_texture		textures[4]; //should change for the bonus pt	
+	t_texture textures[4]; // should change for the bonus pt
 }					t_data;
 
 #endif

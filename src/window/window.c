@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 15:19:26 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:42:28 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ void start_win(t_data *m)
 	m->mlx = mlx_init();
 	m->win = mlx_new_window(m->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	create_framebuff(m);
+	load_textures(m);
+	set_texture_data(m);
 	mlx_hook(m->win, 2, 1L << 0, key_press, m);
 	mlx_hook(m->win, 3, 1L << 1, key_release, m);
 	mlx_hook(m->win, 17, 0, mlx_loop_end, m->mlx);
 }
-
 void cleanup(t_data *data)
 {
+	free_textures(data);	
 	if (data->framebuff)
 	{
 		if (data->framebuff->img)
@@ -57,5 +59,4 @@ void cleanup(t_data *data)
 		free(data->mlx);
 	}
 	free_map_config(data->map_config);
-	free_textures(data);
 }

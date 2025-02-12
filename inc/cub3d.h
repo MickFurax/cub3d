@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/05 15:16:53 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:32:11 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,20 @@ void		reset_angle(double *ray_angle);
 // ray
 bool		has_wall_at(t_data *data, int x, int y);
 int			cast_ray(t_map_config *cf, int col, double *ray_dst);
-void		render_wall(int col, double ray_dist, char *addr, int side);
 void		render_frame(t_data *data);
 void		move_player(t_data *data);
 void		ft_mlx_pixel_put(t_framebuffer *img, int x, int y,
 				unsigned int color);
+void		init_ray_data(t_ray_data *rd);
 void		render_background(t_data *data);
+int			cast_ray2(t_map_config *cf, int col, double *ray_dst,
+				t_ray_data *rd);
+
+// wall
+void		calculate_wall_bound(double ray_dist, int *draw_start,
+				int *draw_end);
+void		put_pixel(char *addr, int pix_idx, int color);
+void		render_wall(int col, double ray_dist, char *addr, int side);
 
 // textures
 void		load_textures(t_data *data);
@@ -61,5 +69,7 @@ void		set_texture_data(t_data *data);
 void		free_textures(t_data *data);
 t_texture	*get_wall_txt(t_data *data, t_ray_data *rd);
 int			get_texture_pxl(t_texture *txt, int x, int y);
+void		render_textured_wall(int col, double ray_dist, t_data *data,
+				t_ray_data *rd);
 
 #endif

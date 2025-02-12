@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
+/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/05 11:32:55 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:28:46 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
