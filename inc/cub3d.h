@@ -6,7 +6,7 @@
 /*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/12 13:32:11 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:18:53 by mrabenja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 // parsing
 int			parse_rgb_color(char *str, t_color *color);
 int			valid_file_ext(char *file_name);
-void		print_hello_world(void);
 char		**ft_split_wsp(char const *s);
 int			parse_id_line(char *line, t_map_config *config);
 int			is_valid_char(char c);

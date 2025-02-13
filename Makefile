@@ -6,7 +6,7 @@
 #    By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/12 20:42:54 by mrabenja         ###   ########.fr        #
+#    Updated: 2025/02/13 10:18:28 by mrabenja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,6 @@ MAIN = $(DIRSRC)/main.c
 #* Update $(DIROBJ) when adding new source files
 #* Source directory inclusion not required (src)
 SRC = main.c \
-	print_hello_world/print_hello_world.c \
 	parsing/ft_split_wsp.c \
 	parsing/parsing1.c parsing/parsing2.c \
 	parsing/free_map_config.c \
@@ -131,7 +130,6 @@ all:
 
 $(DIROBJ):
 	@mkdir -p $(DIROBJ)
-	@mkdir -p $(DIROBJ)/print_hello_world
 	@mkdir -p $(DIROBJ)/parsing
 	@mkdir -p $(DIROBJ)/window
 	@mkdir -p $(DIROBJ)/key
