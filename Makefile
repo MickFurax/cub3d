@@ -6,7 +6,7 @@
 #    By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/13 10:18:28 by mrabenja         ###   ########.fr        #
+#    Updated: 2025/02/13 11:09:03 by mrabenja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,10 +88,12 @@ endef
 export WIPE_MAX                                                                             
 
 NAME = cub3d
+NAMEBONUS = cub3d_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 DIRSRC = src
+DIRBONUS = bonus/src
 DIROBJ = tmp
 
 MAIN = $(DIRSRC)/main.c
@@ -110,7 +112,10 @@ SRC = main.c \
 	raycasting/background.c \
 	raycasting/texture.c \
 
+SRCBONUS = $(SRC) \
+	
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
+OBJBONUS = $(addprefix $(DIROBJ)/, $(SRCBONUS:.c=.o))
 
 LIBFT = libft/libft.a
 MINILIBX = ./minilibx-linux
@@ -121,12 +126,9 @@ LINKING_FLAGS = -Lmlx -L/usr/lib/X11 -lXext -lX11
 SPINNER = /tmp/spinner.sh
 ✔ = \033[0;32m✔\033[0m
 
-all:
-	@clear
-	@echo "$(BYellow)"
-	@echo "$$GP_NAME"
-	@echo "$(Color_Off)"
-	@$(MAKE) $(NAME) --no-print-directory
+all: $(NAME)
+
+bonus: $(NAMEBONUS)
 
 $(DIROBJ):
 	@mkdir -p $(DIROBJ)
@@ -177,8 +179,20 @@ $(LIBMLX): $(SPINNER) $(MINILIBX)
 	@echo "$(✔) Minilibx compiled successfully"
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
+	@clear
+	@echo "$(BYellow)"
+	@echo "$$GP_NAME"
+	@echo "$(Color_Off)"
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm >/dev/null 2>&1
 	@echo "$(✔) Project successfully compiled"
+
+$(NAMEBONUS) : $(OBJBONUS) $(LIBMLX) $(LIBFT)
+	@clear
+	@echo "$(BYellow)"
+	@echo "$$GP_NAME"
+	@echo "$(Color_Off)"
+	@$(CC) $(CFLAGS) $(OBJBONUS) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAMEBONUS) -lm >/dev/null 2>&1
+	@echo "$(✔) Bonus project successfully compiled"
 
 clean: $(SPINNER)
 	@clear
@@ -198,7 +212,7 @@ fclean: clean
 	@$(SPINNER) sleep 0.7
 	@rm -f $(SPINNER) >/dev/null 2>&1
 	@rm -f $(LIBFT) >/dev/null 2>&1
-	@rm -f $(NAME) >/dev/null 2>&1
+	@rm -f $(NAME) $(NAMEBONUS) >/dev/null 2>&1
 	@echo "$(✔) Project successfully cleaned"
 
 wipe_all: fclean
