@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:20:55 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/12 15:42:28 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:31:16 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void start_win(t_data *m)
 	m->win = mlx_new_window(m->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	create_framebuff(m);
 	load_textures(m);
+	init_minimap(m);
 	set_texture_data(m);
 	mlx_hook(m->win, 2, 1L << 0, key_press, m);
 	mlx_hook(m->win, 3, 1L << 1, key_release, m);
@@ -45,7 +46,14 @@ void start_win(t_data *m)
 }
 void cleanup(t_data *data)
 {
-	free_textures(data);	
+	free_textures(data);
+	if (data->enable_minimap)
+	{
+		mlx_destroy_image(data->mlx, data->minimap->minimap_img.img_ptr);
+		mlx_destroy_image(data->mlx, data->minimap->player_img.img_ptr);
+		free(data->minimap);
+	}
+
 	if (data->framebuff)
 	{
 		if (data->framebuff->img)

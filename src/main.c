@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/07 12:28:46 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:31:21 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int gameloop(t_data *data)
 {
     move_player(data);
     render_frame(data);
+    if (data->enable_minimap)
+        render_minimap(data);    
     return (0);
 }
 
@@ -30,6 +32,7 @@ int main(int ac, char **av)
     if (handle_error_input(ac, av, &cf))
         return (1);
     data.map_config = &cf;
+    data.enable_minimap = true;
     init_key(&data);
     printf("Configuration file parsed successfully!\n");
     start_win(&data);

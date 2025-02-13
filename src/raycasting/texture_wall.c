@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_wall.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:27:16 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/12 15:39:45 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:56:45 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

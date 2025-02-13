@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   const.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:41:24 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/10 14:32:52 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:47:34 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 # define WIN_HEIGHT 600
 # define FOV_ANGLE (M_PI / 3) // 60 degrees
 # define TILE_SIZE 64
+
+# define MINIMAP_TILE 32
+# define MINIMAP_W MINIMAP_TILE * 8 / 2
+# define MINIMAP_H MINIMAP_TILE * 8 / 2
+# define MINIMAP_CENTER MINIMAP_TILE * 4 / 2
+# define PLAYER_POS MINIMAP_TILE * 3.5f / 2
+# define MINIMAP_COLOR 0xD0D4E4
 
 // player config
 # define MOVE_SPEED 0.1

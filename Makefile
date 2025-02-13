@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+         #
+#    By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/13 11:09:03 by mrabenja         ###   ########.fr        #
+#    Updated: 2025/02/13 14:43:23 by arabeman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,9 @@ SRC = main.c \
 	raycasting/texture.c \
 
 SRCBONUS = $(SRC) \
+	minimap/minimap.c \
+	minimap/render_minimap.c \
+	minimap/player.c \
 	
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 OBJBONUS = $(addprefix $(DIROBJ)/, $(SRCBONUS:.c=.o))
@@ -136,14 +139,15 @@ $(DIROBJ):
 	@mkdir -p $(DIROBJ)/window
 	@mkdir -p $(DIROBJ)/key
 	@mkdir -p $(DIROBJ)/raycasting
+	@mkdir -p $(DIROBJ)/minimap
 
 $(MINILIBX):
 	@echo "Cloning MinilibX..."
-	@git clone https://github.com/42Paris/minilibx-linux.git >/dev/null 2>&1
+	@git clone https://github.com/42Paris/minilibx-linux.git >/dev/null
 	@echo "$(✔) MinilibX cloned successfully"
 
 $(DIROBJ)/%.o: $(DIRSRC)/%.c $(DIROBJ) $(MINILIBX)
-	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@ >/dev/null 2>&1
+	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@ >/dev/null
 
 $(SPINNER):
 	@touch $@
@@ -172,55 +176,50 @@ $(SPINNER):
 	@echo '("$$@") & spinner $$!' >> $@
 
 $(LIBFT): $(SPINNER)
-	@$(SPINNER) make  -s -C libft --no-print-directory 
+	@$(SPINNER) make   -C libft --no-print-directory 
 
 $(LIBMLX): $(SPINNER) $(MINILIBX)
-	@$(SPINNER) make -s -C $(MINILIBX) 2> /dev/null
+	@$(SPINNER) make  -C $(MINILIBX) 2> /dev/null
 	@echo "$(✔) Minilibx compiled successfully"
 
 $(NAME): $(OBJ) $(LIBMLX) $(LIBFT)
-	@clear
 	@echo "$(BYellow)"
 	@echo "$$GP_NAME"
 	@echo "$(Color_Off)"
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm >/dev/null 2>&1
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAME) -lm >/dev/null
 	@echo "$(✔) Project successfully compiled"
 
 $(NAMEBONUS) : $(OBJBONUS) $(LIBMLX) $(LIBFT)
-	@clear
 	@echo "$(BYellow)"
 	@echo "$$GP_NAME"
 	@echo "$(Color_Off)"
-	@$(CC) $(CFLAGS) $(OBJBONUS) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAMEBONUS) -lm >/dev/null 2>&1
+	@$(CC) $(CFLAGS) $(OBJBONUS) $(LIBFT) $(LIBMLX) $(LINKING_FLAGS) -o $(NAMEBONUS) -lm >/dev/null
 	@echo "$(✔) Bonus project successfully compiled"
 
 clean: $(SPINNER)
-	@clear
 	@echo "$(Purple)"
 	@echo "$$CLEAR$$WIPE_O"
 	@echo "$(Color_Off)"
 	@$(SPINNER) sleep 0.7
-	@rm -rf libft/obj >/dev/null 2>&1
-	@rm -rf $(DIROBJ) >/dev/null 2>&1
+	@rm -rf libft/obj >/dev/null
+	@rm -rf $(DIROBJ) >/dev/null
 	@echo "$(✔) Object files successfully cleaned"
 
 fclean: clean
-	@clear
 	@echo "$(BPurple)"
 	@echo "$$WIPE_ALL"
 	@echo "$(Color_Off)"
 	@$(SPINNER) sleep 0.7
-	@rm -f $(SPINNER) >/dev/null 2>&1
-	@rm -f $(LIBFT) >/dev/null 2>&1
-	@rm -f $(NAME) $(NAMEBONUS) >/dev/null 2>&1
+	@rm -f $(SPINNER) >/dev/null
+	@rm -f $(LIBFT) >/dev/null
+	@rm -f $(NAME) $(NAMEBONUS) >/dev/null
 	@echo "$(✔) Project successfully cleaned"
 
 wipe_all: fclean
-	@clear
 	@echo "$(BRed)"
 	@echo "$$WIPE_MAX"
 	@echo "$(Color_Off)"
-	@rm -rf $(MINILIBX) >/dev/null 2>&1
+	@rm -rf $(MINILIBX) >/dev/null
 	@echo "$(✔) Minilibx removed successfully"
 	@echo "$(✔) Everything wiped out"
 re: fclean all
