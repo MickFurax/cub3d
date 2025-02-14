@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:40:14 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/13 14:07:25 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:30:52 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ typedef struct s_data
 	t_key key;
 	t_texture textures[4]; // should change for the bonus pt
 	bool enable_minimap;
+	int player_start_index[2];
 } t_data;
 
 #endif

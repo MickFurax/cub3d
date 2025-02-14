@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:23:07 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/13 14:31:21 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:51:28 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static int gameloop(t_data *data)
     move_player(data);
     render_frame(data);
     if (data->enable_minimap)
+    {
         render_minimap(data);    
+    }
     return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:39:47 by arabeman          #+#    #+#             */
-/*   Updated: 2025/02/13 14:45:47 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:23:31 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void render_img_minimap(t_data *data, t_img img, int x, int y)
     int j;
     int new_x;
     int new_y;
-    double cos_angle = cos(-data->map_config->player_angle);
-    double sin_angle = sin(-data->map_config->player_angle);
+    double cos_angle = cos(-data->map_config->player_angle - (90 * (M_PI / 180)));
+    double sin_angle = sin(-data->map_config->player_angle - (90 * (M_PI / 180)));
 
     i = 0;
     while (i < MINIMAP_TILE)

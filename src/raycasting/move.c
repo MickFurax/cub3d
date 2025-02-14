@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrabenja <mrabenja@student.42antananari    +#+  +:+       +#+        */
+/*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:03 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/12 12:41:43 by mrabenja         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:13:37 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static	void update_position(t_data *data, double x, double y)
 	{
 		data->map_config->player_x = x;
 		data->map_config->player_y = y;
+		if (data->enable_minimap)
+			move_player_minimap(data);
 	}
 }
 

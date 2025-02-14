@@ -6,7 +6,7 @@
 #    By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 16:58:24 by mrabenja          #+#    #+#              #
-#    Updated: 2025/02/13 14:43:23 by arabeman         ###   ########.fr        #
+#    Updated: 2025/02/14 15:07:51 by arabeman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,8 @@ SRCBONUS = $(SRC) \
 	minimap/minimap.c \
 	minimap/render_minimap.c \
 	minimap/player.c \
+	minimap/wall.c \
+	minimap/move.c \
 	
 OBJ = $(addprefix $(DIROBJ)/, $(SRC:.c=.o))
 OBJBONUS = $(addprefix $(DIROBJ)/, $(SRCBONUS:.c=.o))
