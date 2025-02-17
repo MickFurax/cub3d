@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:03 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/14 15:13:37 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:44:37 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static void	handle_rotation(t_data *data)
 	reset_angle(&data->map_config->player_angle);
 }
 
-static	void update_position(t_data *data, double x, double y)
+static	void update_position(t_data *data, double x, double y, float speed)
 {
 	if (!has_wall_at(data, x, y))
 	{
 		data->map_config->player_x = x;
 		data->map_config->player_y = y;
 		if (data->enable_minimap)
-			move_player_minimap(data);
+			move_player_minimap(data, speed);
 	}
 }
 
@@ -41,10 +41,10 @@ static void	handle_frwrd_bckwrd(t_data *data, float speed)
 	sin_angle = sin(data->map_config->player_angle);
 	if (data->key.forward)
 		update_position(data, data->map_config->player_x + cos_angle * speed,
-			data->map_config->player_y + sin_angle * speed);
+			data->map_config->player_y + sin_angle * speed, speed);
 	if (data->key.backward)
 		update_position(data, data->map_config->player_x - cos_angle * speed,
-			data->map_config->player_y - sin_angle * speed);
+			data->map_config->player_y - sin_angle * speed, speed);
 }
 
 static void	handle_left_right(t_data *data, float speed)
@@ -56,10 +56,10 @@ static void	handle_left_right(t_data *data, float speed)
 	sin_angle = sin(data->map_config->player_angle);
 	if (data->key.left)
 		update_position(data, data->map_config->player_x + sin_angle * speed,
-			data->map_config->player_y - cos_angle * speed);
+			data->map_config->player_y - cos_angle * speed, speed);
 	if (data->key.right)
 		update_position(data, data->map_config->player_x - sin_angle * speed,
-			data->map_config->player_y + cos_angle * speed);
+			data->map_config->player_y + cos_angle * speed, speed);
 }
 
 void	move_player(t_data *data)

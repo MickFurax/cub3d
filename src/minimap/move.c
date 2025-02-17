@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:03 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/14 15:22:49 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:04:41 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,10 @@ static void handle_left_right(t_data *data, float speed)
 						data->minimap->y + sin_angle * speed);
 }
 
-void move_player_minimap(t_data *data)
+void move_player_minimap(t_data *data, float speed)
 {
-	float speed;
-
-	speed = MOVE_SPEED;
 	if ((data->key.forward && (data->key.right || data->key.left)) || (data->key.backward && (data->key.right || data->key.left)))
-		speed = DIAGONAL_SPEED;
+		speed /= 2;
 	handle_frwrd_bckwrd(data, speed);
 	handle_left_right(data, speed);
 }

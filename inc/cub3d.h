@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 00:53:28 by mrabenja          #+#    #+#             */
-/*   Updated: 2025/02/14 14:32:11 by arabeman         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:44:52 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int render_minimap(t_data *data);
 void render_img_minimap(t_data *data, t_img img, int x, int y);
 void put_pixel_minimap(t_minimap *minimap, int x, int y, int color);
 void render_wall_minimap(t_data *data, int x, int y);
-void	move_player_minimap(t_data *data);
+void	move_player_minimap(t_data *data, float speed);
 
 #endif
